@@ -1,0 +1,14 @@
+.delete-button {
+  margin-right: 10px;
+}
+.edit-button {
+  margin-left: 10px;
+}
+.search-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.action-buttons {
+    gap: 20px;
+}

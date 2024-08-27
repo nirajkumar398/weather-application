@@ -4,7 +4,7 @@ export const getDay = (dt) => {
   });
 };
 
-export const getFormatedData = (data) => {
+export const getFormattedData = (data) => {
   let result = {};
   (data?.list || []).map((weather) => {
     const day = getDay(weather?.dt);

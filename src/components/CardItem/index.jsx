@@ -1,55 +1,41 @@
 import { useState } from "react";
 import Card from "../Card";
-
+import './style.css'
 const CardItem = ({ historyItem, history, setHistory }) => {
-  const [editCity, setEditCity] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const [city, setCity] = useState(historyItem.city);
-  const onEditClick = (data) => {
-    setEditCity(!editCity);
-    const filterData = history.map((ele) => {
-      if (historyItem.id == ele.id) {
-        return {
-          ...ele,
-          city: city,
-        };
-      } else {
-        return ele;
-      }
-    });
-    setHistory(filterData);
+
+  const handleEditClick = () => {
+    setIsEditing((prev) => !prev);
+    const updatedHistory = history.map((item) =>
+      item.id === historyItem.id ? { ...item, city } : item
+    );
+    setHistory(updatedHistory);
   };
-  const handleDelete = (data) => {
-    const filterData = history.filter((ele) => ele.id != data.id);
-    setHistory(filterData);
+
+  const handleDelete = () => {
+    const updatedHistory = history.filter((item) => item.id !== historyItem.id);
+    setHistory(updatedHistory);
   };
+
   return (
     <Card>
-      <div className="seach-info">
+      <div className="search-info">
         <div>
-          {editCity ? (
+          {isEditing ? (
             <input value={city} onChange={(e) => setCity(e.target.value)} />
           ) : (
-            <span> {`${historyItem.city} `}</span>
+            <span>{`${historyItem.city} `}</span>
           )}
-          <span>{historyItem.temp} °C, </span>
-          <span>{historyItem.date} </span>
+          <span>{`${historyItem.temp} °C, `}</span>
+          <span>{historyItem.date}</span>
         </div>
-        <div>
-          <span
-            onClick={onEditClick}
-            style={{
-              marginRight: "10px",
-              marginLeft: "10px",
-              cursor: "pointer",
-            }}
-          >
-            {editCity ? "save" : "Edit"}
+        <div className="action-buttons">
+          <span onClick={handleEditClick} className="edit-button">
+            {isEditing ? "Save" : "Edit"}
           </span>
-          <span
-            onClick={() => handleDelete(historyItem)}
-            style={{ cursor: "pointer" }}
-          >
-            delete
+          <span onClick={handleDelete} className="delete-button">
+            Delete
           </span>
         </div>
       </div>

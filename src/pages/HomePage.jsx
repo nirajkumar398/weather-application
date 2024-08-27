@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import { fetchWeatherData } from "../services";
-import { getFormatedData } from "../utils";
+import { getFormattedData } from "../utils";
 
 const HomePage = ({ setHistory }) => {
   const [city, setCity] = useState("");
@@ -12,8 +12,12 @@ const HomePage = ({ setHistory }) => {
   const handleSearch = async () => {
     if (!city) return;
     const data = await fetchWeatherData(city);
+    if (!data || !data.list || data.list.length === 0) {
+        alert("No data is found");
+        return;
+    }
     setWeatherData(data);
-    setWeatherDaysData(getFormatedData(data));
+    setWeatherDaysData(getFormattedData(data));
     const newData = {
       city: city,
       temp: Math.floor(data.list[0]?.main.temp / 10),
