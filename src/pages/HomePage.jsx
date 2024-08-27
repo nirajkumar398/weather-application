@@ -37,7 +37,7 @@ const HomePage = ({ setHistory }) => {
         <button onClick={handleSearch} className="button">
           Search
         </button>
-        <Link to={"/history"} className="button">
+        <Link to={"/weather-application/history"} className="button">
           History
         </Link>
       </div>

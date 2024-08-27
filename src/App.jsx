@@ -10,8 +10,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<HomePage setHistory={setHistory}/>} />
-        <Route exact path="/history" element={<HistoryPage history={history} setHistory={setHistory}/>} />
+        <Route exact path="/weather-application" element={<HomePage setHistory={setHistory}/>} />
+        <Route exact path="/weather-application/history/" element={<HistoryPage history={history} setHistory={setHistory}/>} />
       </Routes>
     </BrowserRouter>
   );
