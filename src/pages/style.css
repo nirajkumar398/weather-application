@@ -1,0 +1,71 @@
+.weather-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.weather-item {
+  font-weight: 600;
+  font-size: 16px;
+}
+.history-container {
+  margin: 0 auto;
+  height: calc(100vh - 50px);
+  padding: 20px;
+  background-color: rgb(53, 30, 30);
+  border-radius: 5px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+.button {
+  padding: 10px 20px;
+  background-color: blue;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  font-weight: "600";
+  cursor: pointer;
+  text-decoration: none;
+}
+input {
+  padding: 12px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.history-list-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.back {
+  text-align: start;
+  margin-bottom: 20px;
+  color: white;
+  cursor: pointer;
+}
+.seach-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.editInfo {
+}
+.delete {
+}
+h1 {
+  background-color: gray;
+  padding: 20px;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 20px;
+}
